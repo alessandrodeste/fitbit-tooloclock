@@ -15,3 +15,9 @@ Here I'm going to develop a clock based on my personal needs, but any contributi
 - [ ] (?) daily mood tracker
 - [ ] button to log a time (long press to retrieve previous time) (use case: i'm feeding the baby now, when i feeded last time?)
 - [ ] make 4 buttons configurable between 3 types: toggle, mood tracker, time log
+- [ ] color customisable
+
+## Tanks to
+
+- sdk-moment[https://github.com/Fitbit/sdk-moment]
+- fitbit-assets[https://github.com/Fitbit/sdk-design-assets]
