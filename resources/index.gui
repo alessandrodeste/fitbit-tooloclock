@@ -1,13 +1,16 @@
 <svg>
   <rect id="background" />
 
-  <text id="txtTime" class="clock-text">13:37</text>
-  <rect class="divider divider-top" />
+  <g transform="rotate(90)">
+    <text id="txtTime" class="clock-text">13:37</text>
+  </g>
   <text id="txtDate" class="date-text">MON JANUARY 01</text>
-  <rect class="divider divider-btm" />
-  <svg class="stats">
+  <rect class="divider divider-1" />
+  <svg class="stats-top">
     <use id="iconHRM" href="#heart-beat" />
     <text id="txtHRM" class="stat-left" />
+  </svg>
+  <svg class="stats-btm">
     <use id="stats-cycle" href="#cycleview">
       <use href="#cycleview-item" class="cycle-item">
         <image href="images/steps.png" class="image" />
@@ -19,6 +22,8 @@
       </use>
     </use>
   </svg>
+  <rect class="divider divider-2" />
+  <rect class="divider divider-3" />
 
   <!-- BOTTOM RIGHT -->
   <use id="btn-br" href="#combo-button-lower-right" fill="fb-peach">
