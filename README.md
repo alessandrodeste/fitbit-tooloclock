@@ -23,6 +23,18 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 
 I've tested the application only on my Fitbit Versa 2
 
+## How to build
+
+*Prerequisites*: Node.js 10.x+
+
+> npm install
+> npx fitbit
+> $fitbit: connect phone
+> $fitbit: connect device
+> $fitbit: bi
+
+You can read Fitbit's [CLI Reference](https://dev.fitbit.com/build/guides/command-line-interface/#building-and-installing-your-project) to learn how to build and deploy this face to your device.
+
 ## Contributing
 
 I'm going to experiment with fitbit apis developing a clock based on my personal needs.
@@ -32,3 +44,4 @@ Any contribution is welcome and if you want to collaborate just ping me, we can 
 
 - sdk-moment: [https://github.com/Fitbit/sdk-moment]
 - Fitbit Assets: [https://github.com/Fitbit/sdk-design-assets]
+- Template: create-fitbit-app
