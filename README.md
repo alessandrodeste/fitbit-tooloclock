@@ -14,7 +14,9 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 
 - [ ] Enable a second timezone (see [fitbit-dual-clockface](https://github.com/edinbb/fitbit-dual-clockface))
 - [ ] Improve design and usability
-- [ ] button to log a time (long press to retrieve previous time) (use case: i'm feeding the baby now, when i feeded last time?)
+- [ ] Log a time
+    _use case_: i'm feeding the baby now, when i feeded last time?
+    _behaviour_: double press to log a time, long press to retrieve previous times
 - [ ] daily mood/energy tracker (how do I feel today?). This feature would need a frontend application to visualise the month trend
 - [ ] make each extra buttons configurable between 3 types: toggle, mood/energy tracker, time log
 - [ ] customisable colors
