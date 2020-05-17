@@ -1,23 +1,34 @@
 # fitbit-tooloclock
 
-Here I'm going to develop a clock based on my personal needs, but any contribution is welcome and if you want to collaborate just ping me, we can plan together a different roadmap. :)
+A Fitbit Versa clock face showing a subset of metrics and some extra buttons to keep track of daily actions
 
-## Roadmap / ideas
+## Features
 
-- [ ] Show a simple clock and one metric (cardio)
-- [ ] 2 configurable toggles for reminders (use case: do I have took the pill? have I given to my baby the vitamin D today?...), behaviour: they set to Off on midnight, on switch On is logged the datetime and the switch pressed
-- [ ] Settings to configure the 2 toggles (name, color, enable/disable)
-- [ ] Configure and show a second timezone
-- [ ] Configure metrics for the clock
+- [x] Simple clock with cardio and steps metrics
+- [ ] Configurable toggles for reminders (
+    _use case_: do I have took the pill? have I given to my baby the vitamin D today?
+    _behaviour_: on switch On is logged the datetime and the switch pressed, after midnight reset to Off
+- [ ] Settings to configure the 3 toggles (name, color, enable/disable)
+
+## Backlog
+
+- [ ] Enable a second timezone (see [fitbit-dual-clockface](https://github.com/edinbb/fitbit-dual-clockface))
 - [ ] Improve design and usability
-- [ ] backend to collect the logs of the toggle
-- [ ] frontend to visualise the logs (month view)
-- [ ] (?) daily mood tracker
 - [ ] button to log a time (long press to retrieve previous time) (use case: i'm feeding the baby now, when i feeded last time?)
-- [ ] make 4 buttons configurable between 3 types: toggle, mood tracker, time log
-- [ ] color customisable
+- [ ] daily mood/energy tracker (how do I feel today?). This feature would need a frontend application to visualise the month trend
+- [ ] make each extra buttons configurable between 3 types: toggle, mood/energy tracker, time log
+- [ ] customisable colors
 
-## Tanks to
+## Testing
 
-- sdk-moment[https://github.com/Fitbit/sdk-moment]
-- fitbit-assets[https://github.com/Fitbit/sdk-design-assets]
+I've tested the application only on my Fitbit Versa 2
+
+## Contributing
+
+I'm going to experiment with fitbit apis developing a clock based on my personal needs.
+Any contribution is welcome and if you want to collaborate just ping me, we can plan together a different roadmap. :)
+
+## Resources
+
+- sdk-moment: [https://github.com/Fitbit/sdk-moment]
+- Fitbit Assets: [https://github.com/Fitbit/sdk-design-assets]
