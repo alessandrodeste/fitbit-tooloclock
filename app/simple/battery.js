@@ -45,7 +45,7 @@ function getColorAndIcon(level = 100, charging = false) {
     };
   }
 
-  if (level > 40) {
+  if (level > 50) {
     return {
       color: white,
       icon: 'images/battery-100.png',
