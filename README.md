@@ -5,13 +5,14 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 ## Features
 
 - [x] Simple clock with cardio and steps metrics
-- [ ] Configurable toggles for reminders (
+- [x] Battery indicator
+- [WIP] Configurable toggles for reminders (
     _use case_: do I have took the pill? have I given to my baby the vitamin D today?
     _behaviour_: on switch On is logged the datetime and the switch pressed, after midnight reset to Off
-- [ ] Settings to configure the 3 toggles (name, color, enable/disable)
 
 ## Backlog
 
+- [ ] Settings to configure the toggles for reminders (name, color, enable/disable)
 - [ ] Enable a second timezone (see [fitbit-dual-clockface](https://github.com/edinbb/fitbit-dual-clockface))
 - [ ] Improve design and usability
 - [ ] Log a time
@@ -44,6 +45,7 @@ Any contribution is welcome and if you want to collaborate just ping me, we can 
 
 ## Resources
 
-- sdk-moment: [https://github.com/Fitbit/sdk-moment]
-- Fitbit Assets: [https://github.com/Fitbit/sdk-design-assets]
-- Template: create-fitbit-app
+- [sdk-moment](https://github.com/Fitbit/sdk-moment)
+- [metrix-fitbit](https://github.com/rootasjey/metrix-fitbit)
+- [Fitbit Assets](https://github.com/Fitbit/sdk-design-assets)
+- Template: [create-fitbit-app](https://github.com/Fitbit/sdk-design-assets)

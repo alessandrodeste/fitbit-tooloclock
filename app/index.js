@@ -1,5 +1,6 @@
 import document from "document";
 
+import * as battery from "./simple/battery";
 import * as simpleActivity from "./simple/activity";
 import * as simpleClock from "./simple/clock";
 import * as simpleHRM from "./simple/hrm";
@@ -7,9 +8,9 @@ import * as simpleHRM from "./simple/hrm";
 let btnBR = document.getElementById("btn-br");
 let txtTime = document.getElementById("txtTime");
 let txtDate = document.getElementById("txtDate");
-let txtHRM = document.getElementById("txtHRM");
-let iconHRM = document.getElementById("iconHRM");
-let imgHRM = iconHRM.getElementById("icon");
+let textHrm = document.getElementById("textHrm");
+let iconHrm = document.getElementById("iconHrm");
+let imageHrm = iconHrm.getElementById("icon");
 let statsCycle = document.getElementById("stats-cycle");
 let statsCycleItems = statsCycle.getElementsByClassName("cycle-item");
 
@@ -33,15 +34,18 @@ function activityCallback(data) {
 simpleActivity.initialize("seconds", activityCallback);
 
 /* -------- HRM ------------- */
+battery.initialize();
+
+/* -------- HRM ------------- */
 function hrmCallback(data) {
-  txtHRM.text = `${data.bpm}`;
+  textHrm.text = `${data.bpm}`;
   if (data.zone === "out-of-range") {
-    imgHRM.href = "images/heart_open.png";
+    imageHrm.href = "images/heart_open.png";
   } else {
-    imgHRM.href = "images/heart_solid.png";
+    imageHrm.href = "images/heart_solid.png";
   }
   if (data.bpm !== "--") {
-    iconHRM.animate("highlight");
+    iconHrm.animate("highlight");
   }
 }
 simpleHRM.initialize(hrmCallback);

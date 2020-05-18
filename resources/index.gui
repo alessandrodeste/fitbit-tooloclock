@@ -6,23 +6,27 @@
   </g>
   <text id="txtDate" class="date-text">MON JANUARY 01</text>
   <rect class="divider divider-1" />
-  <svg class="stats-top">
-    <use id="iconHRM" href="#heart-beat" />
-    <text id="txtHRM" class="stat-left" />
+  <svg class="hrm">
+    <use id="iconHrm" class="hrm-icon" href="#heart-beat" />
+    <text id="textHrm" />
   </svg>
-  <svg class="stats-btm">
+  <svg class="battery">
+    <image id="iconBattery" href="images/battery-0.png" class="battery-icon" />
+    <text id="textBattery" pointer-events="visible">0%</text>
+  </svg>
+  <rect class="divider divider-2" />
+  <svg class="stats">
     <use id="stats-cycle" href="#cycleview">
       <use href="#cycleview-item" class="cycle-item">
         <image href="images/steps.png" class="image" />
-        <text class="stat-right" />
+        <text class="stat-cycle-text" />
       </use>
       <use href="#cycleview-item" class="cycle-item">
         <image href="images/floors.png" class="image" />
-        <text class="stat-right" />
+        <text class="stat-cycle-text" />
       </use>
     </use>
   </svg>
-  <rect class="divider divider-2" />
   <rect class="divider divider-3" />
 
   <!-- BOTTOM RIGHT -->
