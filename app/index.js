@@ -4,6 +4,7 @@ import * as battery from "./simple/battery";
 import * as simpleActivity from "./simple/activity";
 import * as simpleClock from "./simple/clock";
 import * as simpleHRM from "./simple/hrm";
+import { vibration } from "haptics";
 
 let btnBR = document.getElementById("btn-br");
 let btnBL = document.getElementById("btn-bl");
@@ -84,8 +85,10 @@ btnBR.onmouseup = function(evt) {
   let diff = now - btnBRPressTime;
   if (diff > 2000) {
     buttonBR.text = '--';
+    vibration.start("ping");
   } else if (diff > 500) {
     buttonBR.text = lastClockTime;
+    vibration.start("bump");
   }
 }
 
@@ -99,8 +102,10 @@ btnBL.onmouseup = function(evt) {
   let diff = now - btnBLPressTime;
   if (diff > 2000) {
     buttonBL.text = '--';
+    vibration.start("ping");
   } else if (diff > 500) {
     buttonBL.text = lastClockTime;
+    vibration.start("bump");
   }
 }
 
@@ -114,7 +119,9 @@ btnBC.onmouseup = function(evt) {
   let diff = now - btnBCPressTime;
   if (diff > 2000) {
     buttonBC.text = '--:--:--';
+    vibration.start("ping");
   } else {
     buttonBC.text = lastClockTime + ':' + lastClockTimeSeconds;
+    vibration.start("bump");
   }
 }
