@@ -6,13 +6,13 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 
 - Simple clock with cardio and steps metrics
 - Battery indicator
-- Configurable time log for reminders (
-    _use case_: do I have took the pill? have I given to my baby the vitamin D today? at what time my baby start to sleep?
-    _behaviour_: on long click (0.5s for the side buttons, 0s for the central one) is logged the time, after midnight are reset the 2 side buttons, longer click (2s) force reset
+- Configurable time log for reminders
+  - _use cases_: do I have took the pill? have I given to my baby the vitamin D today? at what time my baby start to sleep? at what time the water start to boil?
+  - _behaviour_: on long click (0.5s for the side buttons, 0s for the central one) is logged the time, after midnight are reset the 2 side buttons, longer click (2s) force reset
 
 ## Screenshots
 
-![Versa 2 screenshot](screenshots/versa2-01.png)
+<img src="screenshots/versa2-01.png" width="256"  title="Versa 2 screenshot">
 
 ## Backlog
 
@@ -31,9 +31,13 @@ I've tested the application only on my Fitbit Versa 2
 *Prerequisites*: Node.js 10.x+
 
 > npm install
+
 > npx fitbit
+
 > $fitbit: connect phone
+
 > $fitbit: connect device
+
 > $fitbit: bi
 
 You can read Fitbit's [CLI Reference](https://dev.fitbit.com/build/guides/command-line-interface/#building-and-installing-your-project) to learn how to build and deploy this face to your device.
