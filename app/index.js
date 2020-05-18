@@ -6,6 +6,8 @@ import * as simpleClock from "./simple/clock";
 import * as simpleHRM from "./simple/hrm";
 
 let btnBR = document.getElementById("btn-br");
+let btnBL = document.getElementById("btn-bl");
+let btnBC = document.getElementById("btn-bc");
 let txtTime = document.getElementById("txtTime");
 let txtDate = document.getElementById("txtDate");
 let textHrm = document.getElementById("textHrm");
@@ -13,11 +15,33 @@ let iconHrm = document.getElementById("iconHrm");
 let imageHrm = iconHrm.getElementById("icon");
 let statsCycle = document.getElementById("stats-cycle");
 let statsCycleItems = statsCycle.getElementsByClassName("cycle-item");
+let buttonBC = btnBC.getElementById("text");
+let buttonBR = document.getElementById("btn-br-text");
+let buttonBL = document.getElementById("btn-bl-text");
+
+let lastClockTime = '--';
+let lastClockTimeSeconds = undefined;
+let today = undefined;
+
+function newDayReset(date) {
+  today = date;
+  buttonBR.text = '--';
+  buttonBL.text = '--';
+}
 
 /* --------- CLOCK ---------- */
 function clockCallback(data) {
   txtTime.text = data.time;
   txtDate.text = data.date;
+
+  // Global variables
+  lastClockTime = data.time;
+  lastClockTimeSeconds = data.seconds;
+  
+  // if it's a new day
+  if (today != data.date) {
+    newDayReset(data.date)
+  }
 }
 simpleClock.initialize("minutes", "longDate", clockCallback);
 
@@ -50,7 +74,47 @@ function hrmCallback(data) {
 }
 simpleHRM.initialize(hrmCallback);
 
-/* -------- Button Primary -------- */
-btnBR.onactivate = function(evt) {
-    console.log("Bottom right pressed");
+/* -------- Button Bottom Right -------- */
+let btnBRPressTime = undefined;
+btnBR.onmousedown = function(evt) {
+  btnBRPressTime = Date.now();
+}
+btnBR.onmouseup = function(evt) {
+  let now = Date.now();
+  let diff = now - btnBRPressTime;
+  if (diff > 2000) {
+    buttonBR.text = '--';
+  } else if (diff > 500) {
+    buttonBR.text = lastClockTime;
+  }
+}
+
+/* -------- Button Bottom Left -------- */
+let btnBLPressTime = undefined;
+btnBL.onmousedown = function(evt) {
+  btnBLPressTime = Date.now();
+}
+btnBL.onmouseup = function(evt) {
+  let now = Date.now();
+  let diff = now - btnBLPressTime;
+  if (diff > 2000) {
+    buttonBL.text = '--';
+  } else if (diff > 500) {
+    buttonBL.text = lastClockTime;
+  }
+}
+
+/* -------- Button Bottom Centre -------- */
+let btnBCPressTime = undefined;
+btnBC.onmousedown = function(evt) {
+  btnBCPressTime = Date.now();
+}
+btnBC.onmouseup = function(evt) {
+  let now = Date.now();
+  let diff = now - btnBCPressTime;
+  if (diff > 2000) {
+    buttonBC.text = '--:--:--';
+  } else {
+    buttonBC.text = lastClockTime + ':' + lastClockTimeSeconds;
+  }
 }

@@ -26,90 +26,20 @@
 }
 
 .date-text {
+  x: 50%-50;
+  y: 45;
   font-family: Seville;
   font-size: 26;
-  text-anchor: middle;
-  text-length: 32;
-  x: 50%+40;
-  y: 39;
-  width: 145;
+  text-anchor: start;
+  text-length: 40;
+  width: 200;
   height: 100%;
   fill: #FFFFFF;
 }
 
-.divider {
-  height: 1;
-  fill: #646464;
-}
-
-.divider-1 {
-  x: 50%-40;
-  width: 165;
-  y: 60;
-}
-
-.divider-2 {
-  x: 50%-40;
-  width: 165;
-  y: 130;
-}
-
-.divider-3 {
-  x: 0;
-  width: 100%;
-  y: 220;
-}
-
-.hrm {
-  x: 50%-40;
-  y: 65;
-  width: 165;
-  height: 48;
-}
-
-.hrm text {
-  x: 36;
-  font-family: SevilleSharp;
-  font-size: 30;
-  text-length: 16;
-  fill: #FFFFFF;
-}
-
-.hrm-icon {
-  x: 1;
-  y: 15;
-  width: 24;
-  height: 24;
-  fill: #FF214A;
-}
-
-.battery {
-  x: 50%+40;
-  y: 65;
-  width: 165;
-  height: 48;
-}
-
-.battery text {
-  x: 36;
-  font-family: SevilleSharp;
-  font-size: 30;
-  text-length: 16;
-  fill: #FFFFFF;
-}
-
-.battery-icon {
-  x: 6;
-  y: 15;
-  width: 24;
-  height: 24;
-  fill: #FFFFFF;
-}
-
-
 .stats {
-  x: 50%-40;
-  y: 140;
+  x: 50%-50;
+  y: 155;
   width: 175;
   height: 48;
 }
@@ -140,4 +70,107 @@
   fill: #FFFFFF;
   width: 24;
   height: 24;
+}
+
+.divider {
+  height: 1;
+  fill: #646464;
+}
+
+.divider-1 {
+  x: 50%-55;
+  width: 195;
+  y: 70;
+}
+
+.divider-2 {
+  x: 50%-55;
+  width: 195;
+  y: 145;
+}
+
+.divider-3 {
+  x: 0;
+  width: 100%;
+  y: 220;
+}
+
+.hrm {
+  x: 50%-55;
+  y: 80;
+  width: 165;
+  height: 48;
+}
+
+.hrm text {
+  x: 36;
+  font-family: SevilleSharp;
+  font-size: 30;
+  text-length: 16;
+  fill: #FFFFFF;
+}
+
+.hrm-icon {
+  x: 1;
+  y: 15;
+  width: 24;
+  height: 24;
+  fill: #FF214A;
+}
+
+.battery {
+  x: 50%+30;
+  y: 80;
+  width: 165;
+  height: 48;
+}
+
+.battery text {
+  x: 36;
+  font-family: SevilleSharp;
+  font-size: 30;
+  text-length: 16;
+  fill: #FFFFFF;
+}
+
+.battery-icon {
+  x: 6;
+  y: 15;
+  width: 24;
+  height: 24;
+  fill: #FFFFFF;
+}
+
+#btn-br {
+  fill: #00BFFF;
+}
+
+.br-button-text {
+  x: 50%+5;
+  y: 50%+15;
+  text-length: 10;
+  font-size: 22;
+  text-anchor: middle;
+  fill: #00BFFF;
+}
+
+#btn-bl {
+  fill: #FFA500;
+}
+
+.bl-button-text {
+  x: 50%-6;
+  y: 50%+15;
+  text-length: 10;
+  font-size: 22;
+  text-anchor: middle;
+  fill: #FFA500;
+}
+
+#btn-bc {
+  x: 50%-60;
+  y: 230;
+  width: 120;
+  height: 60;
+  font-family: SevilleSharp;
 }

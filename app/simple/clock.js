@@ -34,6 +34,7 @@ function tickHandler(evt) {
     hours = util.zeroPad(hours);
   }
   let mins = util.zeroPad(today.getMinutes());
+  let seconds = util.zeroPad(today.getSeconds());
 
   let timeString = `${hours}:${mins}`;
   let dateString = today;
@@ -49,5 +50,5 @@ function tickHandler(evt) {
       dateString = `${dayName} ${monthName} ${dayNumber}`;
       break;
   }
-  clockCallback({time: timeString, date: dateString});
+  clockCallback({time: timeString, date: dateString, seconds});
 }

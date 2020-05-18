@@ -79,7 +79,7 @@ function setupEvents() {
 function start() {
     if (!watchID) {
         update();
-        watchID = setInterval(update, 1000);
+        watchID = setInterval(update, 60000);
     }
 }
 

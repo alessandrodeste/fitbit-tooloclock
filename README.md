@@ -4,20 +4,21 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 
 ## Features
 
-- [x] Simple clock with cardio and steps metrics
-- [x] Battery indicator
-- [WIP] Configurable toggles for reminders (
-    _use case_: do I have took the pill? have I given to my baby the vitamin D today?
-    _behaviour_: on switch On is logged the datetime and the switch pressed, after midnight reset to Off
+- Simple clock with cardio and steps metrics
+- Battery indicator
+- Configurable time log for reminders (
+    _use case_: do I have took the pill? have I given to my baby the vitamin D today? at what time my baby start to sleep?
+    _behaviour_: on long click (0.5s for the side buttons, 0s for the central one) is logged the time, after midnight are reset the 2 side buttons, longer click (2s) force reset
+
+## Screenshots
+
+![](screenshots/versa2_01.png)
 
 ## Backlog
 
+- [ ] Improve design and usability
 - [ ] Settings to configure the toggles for reminders (name, color, enable/disable)
 - [ ] Enable a second timezone (see [fitbit-dual-clockface](https://github.com/edinbb/fitbit-dual-clockface))
-- [ ] Improve design and usability
-- [ ] Log a time
-    _use case_: i'm feeding the baby now, when i feeded last time?
-    _behaviour_: double press to log a time, long press to retrieve previous times
 - [ ] daily mood/energy tracker (how do I feel today?). This feature would need a frontend application to visualise the month trend
 - [ ] make each extra buttons configurable between 3 types: toggle, mood/energy tracker, time log
 - [ ] customisable colors
