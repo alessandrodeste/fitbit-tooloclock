@@ -12,7 +12,7 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 
 ## Screenshots
 
-![Versa 2 screenshot](screenshots/versa2_01.png)
+![Versa 2 screenshot](screenshots/versa2-01.png)
 
 ## Backlog
 
