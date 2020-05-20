@@ -7,6 +7,7 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 ### Alpha
 
 - button behaviour change: button do not reset with the new day, improved longclick
+- bugfix: clock time was truncated
 
 ### v0.1.0 - 18/05/2020
 

@@ -2,7 +2,7 @@
   <rect id="background" />
 
   <g transform="rotate(90)">
-    <text id="txtTime" class="clock-text">13:37</text>
+    <text id="txtTime" class="clock-text">00:00</text>
   </g>
   <text id="txtDate" class="date-text">MON JANUARY 01</text>
   <rect class="divider divider-1" />
