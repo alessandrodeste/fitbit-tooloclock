@@ -17,16 +17,6 @@ function update() {
     let iconBattery = document.getElementById("iconBattery");
     let textBattery = document.getElementById("textBattery");
 
-    // const metric = document.getElementById(idSelector);
-    // const icon = document.getElementById(`metric${activity.metricNumber}-img`);
-
-    // icon.style.fill   = activity.color ? activity.color : activity.iconFill;
-    // metric.style.fill = activity.color ? activity.color : activity.textFill;
-
-    // const idSelector = 'metric' + this.metricNumber;
-    // const metric = document.getElementById(idSelector);
-    // const icon = document.getElementById(`${idSelector}-img`);
-
     const level = Math.floor(battery.chargeLevel);
     const colorAndIcon = getColorAndIcon(level, battery.charging);
 
