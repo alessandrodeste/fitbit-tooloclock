@@ -2,7 +2,13 @@
 
 A Fitbit Versa clock face showing a subset of metrics and some extra buttons to keep track of daily actions
 
-## Features
+## Changelog
+
+### Alpha
+
+- button behaviour change: button do not reset with the new day, improved longclick
+
+### v0.1.0 - 18/05/2020
 
 - Simple clock with cardio and steps metrics
 - Battery indicator
@@ -16,11 +22,16 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 
 ## Backlog
 
+- [ ] reverse the side of the digital clock
 - [ ] Improve design and usability
-- [ ] Settings configuration (name, color, enable/disable)
+- [ ] Clean and style the code
+- [ ] bugfix: click & drag the buttons is not behaving as expected
+- [ ] Settings configuration (name, color, enable/disable, left handed version, disable daily reset)
 - [ ] Enable a second timezone (see [fitbit-dual-clockface](https://github.com/edinbb/fitbit-dual-clockface))
 - [ ] Mood tracker [?]
 - [ ] Backend service to export all the reminder's logs and a visualization page on the browser [?]
+- [ ] Button mode: counter [?] (how many times I did this?)
+- [ ] Button mode: Cronomether (start/stop/reset) [?] (how long I'm doing this?)
 
 ## Testing
 

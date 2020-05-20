@@ -4,7 +4,7 @@ import * as battery from "./simple/battery";
 import * as simpleActivity from "./simple/activity";
 import * as simpleClock from "./simple/clock";
 import * as simpleHRM from "./simple/hrm";
-import { vibration } from "haptics";
+import * as buttonHelper from "./buttonHelper";
 
 let btnBR = document.getElementById("btn-br");
 let btnBL = document.getElementById("btn-bl");
@@ -22,13 +22,6 @@ let buttonBL = document.getElementById("btn-bl-text");
 
 let lastClockTime = '--';
 let lastClockTimeSeconds = undefined;
-let today = undefined;
-
-function newDayReset(date) {
-  today = date;
-  buttonBR.text = '--';
-  buttonBL.text = '--';
-}
 
 /* --------- CLOCK ---------- */
 function clockCallback(data) {
@@ -38,11 +31,6 @@ function clockCallback(data) {
   // Global variables
   lastClockTime = data.time;
   lastClockTimeSeconds = data.seconds;
-  
-  // if it's a new day
-  if (today != data.date) {
-    newDayReset(data.date)
-  }
 }
 simpleClock.initialize("minutes", "longDate", clockCallback);
 
@@ -76,52 +64,34 @@ function hrmCallback(data) {
 simpleHRM.initialize(hrmCallback);
 
 /* -------- Button Bottom Right -------- */
-let btnBRPressTime = undefined;
-btnBR.onmousedown = function(evt) {
-  btnBRPressTime = Date.now();
-}
-btnBR.onmouseup = function(evt) {
-  let now = Date.now();
-  let diff = now - btnBRPressTime;
-  if (diff > 2000) {
-    buttonBR.text = '--';
-    vibration.start("ping");
-  } else if (diff > 500) {
-    buttonBR.text = lastClockTime;
-    vibration.start("bump");
-  }
-}
+buttonHelper.initButton(
+  btnBR, 
+  (setTime) => {
+    if (setTime) {
+      buttonBR.text = lastClockTime;
+    } else { 
+      buttonBR.text = '--';
+    }
+});
 
 /* -------- Button Bottom Left -------- */
-let btnBLPressTime = undefined;
-btnBL.onmousedown = function(evt) {
-  btnBLPressTime = Date.now();
-}
-btnBL.onmouseup = function(evt) {
-  let now = Date.now();
-  let diff = now - btnBLPressTime;
-  if (diff > 2000) {
-    buttonBL.text = '--';
-    vibration.start("ping");
-  } else if (diff > 500) {
-    buttonBL.text = lastClockTime;
-    vibration.start("bump");
-  }
-}
+buttonHelper.initButton(
+  btnBL, 
+  (setTime) => {
+    if (setTime) {
+      buttonBL.text = lastClockTime;
+    } else { 
+      buttonBL.text = '--';
+    }
+});
 
 /* -------- Button Bottom Centre -------- */
-let btnBCPressTime = undefined;
-btnBC.onmousedown = function(evt) {
-  btnBCPressTime = Date.now();
-}
-btnBC.onmouseup = function(evt) {
-  let now = Date.now();
-  let diff = now - btnBCPressTime;
-  if (diff > 2000) {
-    buttonBC.text = '--:--:--';
-    vibration.start("ping");
-  } else {
-    buttonBC.text = lastClockTime + ':' + lastClockTimeSeconds;
-    vibration.start("bump");
-  }
-}
+buttonHelper.initButton(
+  btnBC, 
+  (setTime) => {
+    if (setTime) {
+      buttonBC.text = lastClockTime + ':' + lastClockTimeSeconds;
+    } else { 
+      buttonBC.text = '--:--:--';
+    }
+});
