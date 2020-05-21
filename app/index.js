@@ -6,9 +6,12 @@ import * as simpleClock from "./simple/clock";
 import * as simpleHRM from "./simple/hrm";
 import * as buttonHelper from "./buttonHelper";
 
-let btnBR = document.getElementById("btn-br");
-let btnBL = document.getElementById("btn-bl");
-let btnBC = document.getElementById("btn-bc");
+let buttonBottomRight = document.getElementById("btn-br");
+let buttonBottomLeft = document.getElementById("btn-bl");
+let buttonBottomCentre = document.getElementById("btn-bc");
+let buttonTextBottomCentre = buttonBottomCentre.getElementById("text");
+let buttonTextBottomRight = document.getElementById("btn-br-text");
+let buttonTextBottomLeft = document.getElementById("btn-bl-text");
 let txtTime = document.getElementById("txtTime");
 let txtDate = document.getElementById("txtDate");
 let textHrm = document.getElementById("textHrm");
@@ -16,9 +19,6 @@ let iconHrm = document.getElementById("iconHrm");
 let imageHrm = iconHrm.getElementById("icon");
 let statsCycle = document.getElementById("stats-cycle");
 let statsCycleItems = statsCycle.getElementsByClassName("cycle-item");
-let buttonBC = btnBC.getElementById("text");
-let buttonBR = document.getElementById("btn-br-text");
-let buttonBL = document.getElementById("btn-bl-text");
 
 let lastClockTime = '--';
 let lastClockTimeSeconds = undefined;
@@ -63,35 +63,20 @@ function hrmCallback(data) {
 }
 simpleHRM.initialize(hrmCallback);
 
-/* -------- Button Bottom Right -------- */
 buttonHelper.initButton(
-  btnBR, 
-  (setTime) => {
-    if (setTime) {
-      buttonBR.text = lastClockTime;
-    } else { 
-      buttonBR.text = '--';
-    }
-});
+  buttonBottomRight, 
+  buttonTextBottomRight,
+  buttonHelper.BUTTON_MODE.LOG_TIME
+);
 
-/* -------- Button Bottom Left -------- */
 buttonHelper.initButton(
-  btnBL, 
-  (setTime) => {
-    if (setTime) {
-      buttonBL.text = lastClockTime;
-    } else { 
-      buttonBL.text = '--';
-    }
-});
+  buttonBottomLeft, 
+  buttonTextBottomLeft,
+  buttonHelper.BUTTON_MODE.LOG_TIME
+);
 
-/* -------- Button Bottom Centre -------- */
 buttonHelper.initButton(
-  btnBC, 
-  (setTime) => {
-    if (setTime) {
-      buttonBC.text = lastClockTime + ':' + lastClockTimeSeconds;
-    } else { 
-      buttonBC.text = '--:--:--';
-    }
-});
+  buttonBottomCentre, 
+  buttonTextBottomCentre,
+  buttonHelper.BUTTON_MODE.CHRON
+);

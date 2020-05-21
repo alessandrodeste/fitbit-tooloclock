@@ -6,6 +6,8 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 
 ### Alpha
 
+- *chronometer* on the central button (long press to reset)
+- switch visualization mode to *tachymeter* on drag down the chronometer
 - button behaviour change: button do not reset with the new day, improved longclick
 - bugfix: clock time was truncated
 
@@ -26,7 +28,6 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 - [ ] reverse the side of the digital clock
 - [ ] Improve design and usability
 - [ ] Clean and style the code
-- [ ] bugfix: click & drag the buttons is not behaving as expected
 - [ ] Settings configuration (name, color, enable/disable, left handed version, disable daily reset)
 - [ ] Enable a second timezone (see [fitbit-dual-clockface](https://github.com/edinbb/fitbit-dual-clockface))
 - [ ] Mood tracker [?]

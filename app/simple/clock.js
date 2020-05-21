@@ -8,6 +8,7 @@ import { days, months, monthsShort } from "./locales/en.js";
 import * as util from "./utils";
 
 let dateFormat, clockCallback;
+export let lastTime;
 
 export function initialize(granularity, dateFormatString, callback) {
   dateFormat = dateFormatString;
@@ -17,6 +18,7 @@ export function initialize(granularity, dateFormatString, callback) {
 }
 
 function tickHandler(evt) {
+  lastTime = evt.date;
   let {hours, mins, seconds} = util.timeWithPad(evt.date);
   let timeString = `${hours}:${mins}`;
 

@@ -8,8 +8,12 @@ export function zeroPad(i) {
     return i;
 }
 
-export function timeWithPad(date) {
+export function timeWithPad(date, removeTimezone) {
   let hours = date.getHours();
+  if (removeTimezone) {
+    let timezone = date.getTimezoneOffset() * 60000;
+    hours = new Date(date.getTime() + timezone).getHours();
+  }
   if (preferences.clockDisplay === "12h") {
     // 12h format
     hours = hours % 12 || 12;
