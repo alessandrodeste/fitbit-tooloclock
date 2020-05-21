@@ -7,7 +7,7 @@ let startX = null;
 let startY = null;
 
 export function initButton(buttonRef, callbackSetTime) {
-  let setFlag = false;
+  let setOnceFlag = false;
 
   const stopInterval = function() {
     if (intervalID) {
@@ -23,9 +23,9 @@ export function initButton(buttonRef, callbackSetTime) {
       callbackSetTime(false);
       stopInterval();
       vibration.start("ping");
-    } else if (diff > 300 && setFlag == false) {
+    } else if (diff > 300 && setOnceFlag == false) {
       callbackSetTime(true);
-      setFlag = true;
+      setOnceFlag = true;
       vibration.start("bump");
     }
   };
@@ -34,7 +34,7 @@ export function initButton(buttonRef, callbackSetTime) {
     btnPressTime = Date.now();
 
     if (!intervalID) {
-      setFlag = false;
+      setOnceFlag = false;
       intervalID = setInterval(checkButtonPress, 100);
     }
     startY = evt.screenY;

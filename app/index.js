@@ -32,7 +32,7 @@ function clockCallback(data) {
   lastClockTime = data.time;
   lastClockTimeSeconds = data.seconds;
 }
-simpleClock.initialize("minutes", "longDate", clockCallback);
+simpleClock.initialize("minutes", "mediumDate", clockCallback);
 
 /* ------- ACTIVITY --------- */
 function activityCallback(data) {
@@ -46,7 +46,7 @@ function activityCallback(data) {
 }
 simpleActivity.initialize("seconds", activityCallback);
 
-/* -------- HRM ------------- */
+/* -------- Battery ------------- */
 battery.initialize();
 
 /* -------- HRM ------------- */
