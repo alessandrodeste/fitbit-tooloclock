@@ -8,7 +8,7 @@ import { days, months, monthsShort } from "./locales/en.js";
 import * as util from "./utils";
 
 let dateFormat, clockCallback;
-export let lastTime;
+export let lastTime = null;
 
 export function initialize(granularity, dateFormatString, callback) {
   dateFormat = dateFormatString;

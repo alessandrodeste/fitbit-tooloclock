@@ -2,24 +2,41 @@
 import { vibration } from "haptics";
 import * as util from "./simple/utils";
 import * as simpleClock from "./simple/clock";
-
-let btnPressTime = undefined;
-let intervalID = null;
-let startX = null;
-let startY = null;
+import { me } from "appbit";
 
 export const BUTTON_MODE = {
   LOG_TIME: 'LOG_TIME', 
   CHRON: 'CHRON'
 };
 
-export function initButton(buttonRef, buttonTextRef, mode) {
+export function initButton(name, buttonRef, buttonTextRef, mode) {
+  const fileName = name + '.json';
+  let btnPressTime = undefined;
+  let intervalID = null;
+  let startX = null;
+  let startY = null;
   let executeActionOnce = false;
   let chronStartTime = null;
   let chronRunning = false;
   let chronTimeAcc = 0;
   let tachymeterMod = false;
   let settachymeterModOnce = false;
+  let value = '';
+
+  const setValue = function(val) {
+    buttonTextRef.text = val;
+    value = buttonTextRef.text; // to store the crop value
+  }
+
+  const oldOnunload = typeof me.onunload === "function" ? me.onunload : () => {};
+  me.onunload = () => {
+    oldOnunload();
+    util.saveData(fileName, {
+      value, 
+      chronStartTime: !chronStartTime ? null : chronStartTime.getTime(), 
+      chronTimeAcc
+    });
+  }
 
   const stopInterval = function() {
     if (intervalID) {
@@ -60,19 +77,20 @@ export function initButton(buttonRef, buttonTextRef, mode) {
 
   // if you are swiping stop the button behaviour
   buttonRef.onmousemove = function(evt) {
-    if (mode === BUTTON_MODE.CHRON && !settachymeterModOnce && (startY - evt.screenY) < 50) {
+    if (mode === BUTTON_MODE.CHRON && !settachymeterModOnce && (startY - evt.screenY) < -20) {
       tachymeterMod = !tachymeterMod;
       settachymeterModOnce = true;
+      chronUpdate();
     } else if (Math.abs(startY - evt.screenY) > 30 ||  Math.abs(startX - evt.screenX) > 30) {
       stopInterval();
     }
   }
-  
+
   const buttonAction = function(mode) {
     switch (mode) {
       case BUTTON_MODE.LOG_TIME: 
         let {hours, mins} = util.timeWithPad(simpleClock.lastTime);
-        buttonTextRef.text = `${hours}:${mins}`;
+        setValue(`${hours}:${mins}`);
         break;
       case BUTTON_MODE.CHRON: 
         if (chronRunning) {
@@ -87,7 +105,7 @@ export function initButton(buttonRef, buttonTextRef, mode) {
   const buttonReset = function(mode) {
     switch (mode) {
       case BUTTON_MODE.LOG_TIME: 
-        buttonTextRef.text = '--';
+        setValue('--');
         break;
       case BUTTON_MODE.CHRON: 
         chronReset();
@@ -97,13 +115,15 @@ export function initButton(buttonRef, buttonTextRef, mode) {
 
   const chronStart = function() {
     chronStartTime = simpleClock.lastTime;
-    chronRunning = setInterval(chronUpdate, 100);
+    chronRunUpdate();
   }
 
   const chronPause = function() {
+    chronTimeAcc = chronTimeAcc + (simpleClock.lastTime - chronStartTime);
+    chronStartTime = null;
     clearInterval(chronRunning);
     chronRunning = null;
-    chronTimeAcc = chronTimeAcc + (simpleClock.lastTime - chronStartTime);
+    chronUpdate();
   }
 
   const chronReset = function() {
@@ -111,18 +131,38 @@ export function initButton(buttonRef, buttonTextRef, mode) {
     chronTimeAcc = 0;
     clearInterval(chronRunning);
     chronRunning = null;
-    buttonTextRef.text = '--:--:--';
+    setValue('--:--:--');
+  }
+
+  const chronRunUpdate = function() {
+    chronRunning = setInterval(chronUpdate, 100);
   }
 
   const chronUpdate = function() {
-    const diff = new Date(chronTimeAcc + (simpleClock.lastTime - chronStartTime));
-    if (tachymeterMod && diff.getTime()) {
-      const times = 3600 / (diff.getTime() / 1000);
+    const diff = !chronStartTime ? chronTimeAcc : chronTimeAcc + (simpleClock.lastTime - chronStartTime);
+    const diffDate = new Date(diff);
+    if (tachymeterMod && diffDate.getTime()) {
+      const times = 3600 / (diffDate.getTime() / 1000);
       const timeRounded = times > 20 ? Math.floor(times) : Math.round(times * 100) / 100;
-      buttonTextRef.text = timeRounded;
+      setValue(timeRounded);
     } else {
-      const {hours, mins, seconds} = util.timeWithPad(diff, true);
-      buttonTextRef.text = `${hours}:${mins}:${seconds}`;
+      const { hours, mins, seconds } = util.timeWithPad(diffDate, true);
+      setValue(`${hours}:${mins}:${seconds}`);
     }
   }
+
+  const onLoad = function() {
+    const previousValues = util.loadData(fileName, {value: null, chronStartTime: null, chronTimeAcc: null})
+    if (previousValues && previousValues.value) {
+      setValue(previousValues.value);
+      if (mode === BUTTON_MODE.CHRON) {
+        chronStartTime = previousValues.chronStartTime ? new Date(previousValues.chronStartTime) : null;
+        chronTimeAcc = previousValues.chronTimeAcc;
+        if (previousValues.chronStartTime) {
+          chronRunUpdate();
+        }
+      }
+    }
+  }
+  onLoad();
 }

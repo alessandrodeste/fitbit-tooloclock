@@ -1,4 +1,5 @@
 import { preferences } from "user-settings";
+import * as fs from "fs";
 
 // Add zero in front of numbers < 10
 export function zeroPad(i) {
@@ -24,4 +25,16 @@ export function timeWithPad(date, removeTimezone) {
   let mins = zeroPad(date.getMinutes());
   let seconds = zeroPad(date.getSeconds());
   return {hours, mins, seconds};
+}
+
+export function loadData(file, defaults) {
+  try {
+    return fs.readFileSync(file, "cbor");
+  } catch (ex) {
+    return defaults;
+  }
+}
+
+export function saveData(file, data) {
+  fs.writeFileSync(file, data, "cbor");
 }

@@ -64,18 +64,21 @@ function hrmCallback(data) {
 simpleHRM.initialize(hrmCallback);
 
 buttonHelper.initButton(
+  'buttonBottomRight',
   buttonBottomRight, 
   buttonTextBottomRight,
   buttonHelper.BUTTON_MODE.LOG_TIME
 );
 
 buttonHelper.initButton(
+  'buttonBottomLeft',
   buttonBottomLeft, 
   buttonTextBottomLeft,
   buttonHelper.BUTTON_MODE.LOG_TIME
 );
 
 buttonHelper.initButton(
+  'buttonBottomCentre',
   buttonBottomCentre, 
   buttonTextBottomCentre,
   buttonHelper.BUTTON_MODE.CHRON

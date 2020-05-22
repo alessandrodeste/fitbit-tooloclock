@@ -4,6 +4,10 @@ A Fitbit Versa clock face showing a subset of metrics and some extra buttons to 
 
 ## Changelog
 
+### v0.3.0 - 22/05/2020
+
+- added local persitence on button values
+
 ### v0.2.0 - 21/05/2020
 
 - *chronometer* on the central button (long press to reset)
