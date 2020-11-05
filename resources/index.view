@@ -30,26 +30,22 @@
   <rect class="divider divider-3" />
 
   <!-- BOTTOM RIGHT -->
-  <use id="btn-br" href="#combo-button-lower-right">
-    <set href="combo-button-icon" attributeName="href" to="" />
-    <set href="combo-button-icon-press" attributeName="href" to="" />
-    <text id="btn-br-text" class="br-button-text">--</text>
-    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  <use id="btn-br" href="#text-button" class="text-button bottom right secondary application-fill">
+    <text id="btn-br-text" class="bl-button-text">--</text>
+    <set href="#text" attributeName="text-buffer" to="" />
   </use>
 
   <!-- BOTTOM LEFT -->
-  <use id="btn-bl" href="#combo-button-lower-left">
-    <set href="combo-button-icon" attributeName="href" to="" />
-    <set href="combo-button-icon-press" attributeName="href" to="" />
+  <use id="btn-bl" href="#text-button" class="text-button bottom left secondary application-fill">
     <text id="btn-bl-text" class="bl-button-text">--</text>
-    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+    <set href="#text" attributeName="text-buffer" to="" />
   </use>
 
   <!-- BOTTOM CENTRE -->
-  <use id="btn-bc" href="#push-button">
+  <use id="btn-bc" href="#text-button" class="text-button bottom">
     <set href="#text" attributeName="text-buffer" to="--:--:--" />
     <set href="#text" attributeName="fill" to="#ADFF2F" />
-    <set href="#text" attributeName="y" to="12" />
+    <set href="#text" attributeName="y" to="15" />
   </use>
 
 </svg>

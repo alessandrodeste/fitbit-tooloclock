@@ -145,32 +145,12 @@
   fill: #00BFFF;
 }
 
-.br-button-text {
-  x: 50%+5;
-  y: 50%+15;
-  text-length: 10;
-  font-size: 22;
-  text-anchor: middle;
-  fill: #00BFFF;
-}
-
 #btn-bl {
-  fill: #FFA500;
+  fill: #FFA500;  
 }
 
-.bl-button-text {
-  x: 50%-6;
-  y: 50%+15;
-  text-length: 10;
-  font-size: 22;
-  text-anchor: middle;
-  fill: #FFA500;
-}
-
-#btn-bc {
-  x: 50%-65;
+#btn-bc {  
   y: 230;
-  width: 130;
-  height: 60;
+  height: 12%;
   font-family: SevilleSharp;
 }
