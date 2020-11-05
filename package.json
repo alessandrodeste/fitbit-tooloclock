@@ -1,11 +1,11 @@
 {
   "name": "tooloclock",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "@fitbit/sdk": "~4.1.0",
-    "@fitbit/sdk-cli": "^1.7.1"
+    "@fitbit/sdk": "~5.0.1",
+    "@fitbit/sdk-cli": "^1.7.3"
   },
   "fitbit": {
     "appUUID": "85c9613c-8546-4008-99b0-044026eb50b8",
@@ -19,15 +19,13 @@
       "access_user_profile"
     ],
     "buildTargets": [
-      "meson",
-      "gemini",
-      "mira"
+      "vulcan",
+      "atlas"
     ],
     "i18n": {},
     "defaultLanguage": "en-US"
   },
   "scripts": {
-    "build": "fitbit-build",
-    "debug": "fitbit"
+    "build": "fitbit-build"
   }
 }
